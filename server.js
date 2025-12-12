@@ -1,6 +1,6 @@
 require("dotenv").config();
 console.log("Loaded API key:", process.env.OPENAI_API_KEY);
-import { createClient } from "@supabase/supabase-js";
+const{ createClient} = require("@supabase/supabase-js");
 const express = require("express");
 const fetch = require("node-fetch");
 const app = express();
