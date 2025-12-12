@@ -26,7 +26,7 @@ app.post("/store", async (req, res) => {
 
   //supabase insert
   const { error } = await supabase
-    .from("questions")
+    .from("responses")
     .insert([
       {
         video_id: videoId,
@@ -35,7 +35,11 @@ app.post("/store", async (req, res) => {
       }
     ]);
 
-  if (error) return res.status(400).json({ error });
+  if (error) {
+  console.error("SUPABASE INSERT ERROR:", error);
+  return res.status(400).json({ error });
+}
+
   res.json({ success: true });
 });
 
