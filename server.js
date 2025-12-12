@@ -11,7 +11,9 @@ app.use(cors({
 
 
 app.use(express.json());
-
+app.get('/', (req, res) => {
+  res.send('Server is alive!');
+});
 app.post("/api/generate", async (req, res) => {
   const prompt = req.body.prompt;
 
