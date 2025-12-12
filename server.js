@@ -11,9 +11,34 @@ app.use(cors({
 
 
 app.use(express.json());
+
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
+
 app.get('/', (req, res) => {
   res.send('Server is alive!');
 });
+
+app.post("/store", async (req, res) => {
+  const { videoId, question, result } = req.body;
+
+  //supabase insert
+  const { error } = await supabase
+    .from("questions")
+    .insert([
+      {
+        video_id: videoId,
+        question_text: question,
+        is_correct: result
+      }
+    ]);
+
+  if (error) return res.status(400).json({ error });
+  res.json({ success: true });
+});
+
 app.post("/api/generate", async (req, res) => {
   const prompt = req.body.prompt;
 
