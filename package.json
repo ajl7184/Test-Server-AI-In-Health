@@ -12,9 +12,18 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@supabase/supabase-js": "^2.87.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "node-fetch": "^2.7.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajl7184/Test-Server-AI-In-Health.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ajl7184/Test-Server-AI-In-Health/issues"
+  },
+  "homepage": "https://github.com/ajl7184/Test-Server-AI-In-Health#readme"
 }
